@@ -42,7 +42,7 @@ select {
   background-color: #e8eeef;
   color: #8a97a0;
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-size: 15px;
 }
 
@@ -71,6 +71,7 @@ input[type="submit"] {
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
   margin-top: 30px;
+  cursor: pointer;
 }
 
 legend {
@@ -116,11 +117,11 @@ label {
     margin-right: 8px;
 }
   
-.form-group input:checked + label::after {
+.form-group input:checked + label:after {
     content: '';
     display: block;
     position: absolute;
-    top: 2px;
+    top: 12px;
     left: 9px;
     width: 6px;
     height: 14px;
@@ -132,6 +133,14 @@ label {
 .contactlabel {
     display: flex;
     align-items: center;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-field small {
+    color: #dc3545;
 }
 
 @media screen and (min-width: 480px) {

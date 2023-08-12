@@ -2,9 +2,10 @@ const nameEl = document.querySelector('#name');
 const surnameEl = document.querySelector('#surname');
 const emailEl = document.querySelector('#email');
 const ageEl = document.querySelector('#age');
+const colorEl = document.querySelector('#favcolor');
+const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
 
 const form = document.querySelector('#signup');
-
 
 const checkEmail = () => {
     let valid = false;
@@ -25,6 +26,20 @@ const isEmailValid = (email) => {
     return re.test(email);
 };
 
+const checkboxValid = () => {
+    let valid = false;
+    var cbox = document.forms["signup"]["check"];
+    if (
+      cbox[0].checked == false &&
+      cbox[1].checked == false &&
+      cbox[2].checked == false
+    ) {
+      alert("Please Select Gender");
+    } else {
+      alert("Successfully Submited");
+      valid = true;
+    }
+}
 
 const isRequired = value => value === '' ? false : true;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
@@ -59,5 +74,9 @@ form.addEventListener('submit', function (e) {
     // prevent the form from submitting
     e.preventDefault();
 
-    isEmailValid = checkEmail()
+    let isEmailValid = checkEmail(),
+    isCheckboxValid = checkboxValid();
+
+    let isFormValid = isEmailValid && isCheckboxValid;
 });
+

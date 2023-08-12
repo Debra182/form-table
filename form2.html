@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-end developer exercise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <form id="signup" class="form" method="post">
+            <h1>Sign Up</h1>
+            <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" autocomplete="off">
+                <span class="err-txt">Please fill in first name.</span>
+            </div>
+
+            <div class="form-field">
+                <label for="surname">Surname</label>
+                <input type="text" name="surname" id="surname" class="form-control" autocomplete="off">
+                <span class="err-txt">Please fill in surname.</span>
+            </div>
+
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" class="form-control" autocomplete="off">
+                <span class="err-txt">Please fill in email.</span>
+            </div>
+
+            <div class="form-field">
+                <label for="age">Age</label>
+                <input type="number" name="age" id="age" class="form-control" autocomplete="off">
+            </div>
+
+            <div class="form-field">
+                <label for="favcolor">Favorite color</label>
+                <select name="dropdown" id="favcolor" class="form-control">
+                    <option value="red" selected>red</option>
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    <option value="white">white</option>
+                    <option value="black">black</option>
+                 </select>
+                 <span class="err-txt">Please select one option</span>
+            </div>
+
+            <div class="form-field">
+                <legend>Contact preference:</legend>
+                <div class="form-group">
+                <label for="emailcontact" class="contactlabel">Email</label>
+                <input type="checkbox" name="check" id="emailcontact" class="form-control" autocomplete="off" value="email">
+                </div>
+                <div class="form-group">
+                <label for="emailcontact" class="contactlabel">Phone call</label>
+                <input type="checkbox" name="check" id="phonecontact" class="form-control" autocomplete="off" value="phone call">
+                </div>
+                <div class="form-group">
+                <label for="emailcontact" class="contactlabel">SMS</label>
+                <input type="checkbox" name="check" id="smscontact" class="form-control" autocomplete="off" value="SMS">
+                <span class="err-txt">Please check one option.</span>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <input type="submit" value="Submit" id="submit">
+            </div>
+        </form>
+    </div>
+
+    <form action="https://google.com" class="form" id="form">
+		<div class="float-left">
+			<div class="input-holder">
+				<input type="text" name="fname" placeholder="First Name" class="form-control" data-name="name">
+				<span class="err-txt">Please fill in first name.</span>
+			</div>
+			<div class="input-holder">
+				<input type="text" name="sname" placeholder="Sur Name" class="form-control" data-name="name">
+				<span class="err-txt">Please fill in sur name.</span>
+			</div>
+			<div class="input-holder">
+				<input type="email" name="email" placeholder="Email" class="form-control">
+				<span class="err-txt">Please fill in email.</span>
+			</div>
+			<div class="input-holder">
+				<input type="tel" name="phone" placeholder="Phone" class="form-control">
+				<span class="err-txt">Please fill in phone number.</span>
+			</div>
+			<div class="input-holder checkbox">
+				<input type="checkbox" name="checkbox" id="check1" class="form-control" value="Checkbox1">
+				<label for="check1">Checkbox 1</label>
+				<br>
+				<input type="checkbox" name="checkbox" id="check2" class="form-control" value="Checkbox2	">
+				<label for="check2">Checkbox 2</label>
+				<span class="err-txt">Please check one option</span>
+			</div>
+			<div class="input-holder radiocheck">
+				<input type="radio" name="radio" id="radio1" class="form-control" value="radio1">
+				<label for="radio1">Radio 1</label>
+				<br>
+				<input type="radio" name="radio" id="radio2" class="form-control" value="radio2">
+				<label for="radio2">Radio 2</label>
+				<span class="err-txt">Please check one option</span>
+			</div>
+			<div class="input-holder">
+				<select name="select" id="select" class="form-control">
+					<option value="" disabled="disabled" selected="selected">Select </option>
+					<option value="1">Option 1</option>
+					<option value="2">Option 2</option>
+					<option value="3">Option 3</option>
+				</select>
+				<span class="err-txt">Please select one option</span>
+			</div>
+		</div>
+		<div class="float-left">
+			<div class="input-holder">
+				<textarea name="textarea" id="" cols="30" rows="10" placeholder="Text" class="form-control"></textarea>
+				<span class="err-txt">Please fill in some text</span>
+			</div>
+			<div class="input-holder">
+				<input type="submit" value="Send" class="btn-submit">
+			</div>
+		</div>
+	</form>
+
+    <script src="script2.js"></script>
+
+</body>
+</html>
