@@ -35,7 +35,7 @@
                 <span class="err-txt">Please fill in email.</span>
             </div>
 
-            <div class="form-field checkbox">
+            <div class="form-field checkbox" id="contactcheck">
                 <legend>Contact preference:</legend>
                 <div class="form-group">
                 <input type="checkbox" name="checkbox" id="emailcontact" class="form-control" autocomplete="off" value="email">
@@ -56,17 +56,17 @@
                 <label for="select">Favorite color</label>
 				<select name="select" id="select" class="form-control">
                     <option value="" disabled="disabled" selected="selected">Select</option>
-                    <option value="1">red</option>
-                    <option value="2">green</option>
-                    <option value="3">blue</option>
-                    <option value="4">white</option>
-                    <option value="5">black</option>
+                    <option value="red">red</option>
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    <option value="white">white</option>
+                    <option value="black">black</option>
 				</select>
 				<span class="err-txt">Please select one option.</span>
             </div>
 
             <div class="form-field">
-                <input type="submit" value="Submit" id="submit" class="btn-submit" onclick="addData(this)">
+                <input type="submit" value="Submit" id="submit" class="btn-submit" onclick="score_table()">
             </div>
         </form>
 
@@ -74,6 +74,7 @@
         <table class="data-table" id="list">
             <thead>
             <tr>
+            <th nowrap></th>      
             <th nowrap>Name</th>      
             <th nowrap>Surname</th>      
             <th nowrap>Age</th>      

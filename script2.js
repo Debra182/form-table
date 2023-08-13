@@ -122,11 +122,13 @@ function addData(el) {
   }
 	*/
 
-	var testScore = {
+	var tableData = {
 		name: "",
-		math: 0,
-		physics: 0,
-		chemistry: 0
+		surname: "",
+		age: 0,
+		email: "",
+	
+		select: ""
 	  };
 	  var i = 1;
 	  /* This variable is incremented by 1 every time the user clicks the "Submit" button. Display the "No" column, and the position of rows when added to the table 
@@ -137,15 +139,18 @@ function addData(el) {
 		document.getElementById("list").style.display = "block";
 	  
 		// Gathering the data after submit
-		testScore.name = document.getElementById("name").value;
-		testScore.math = document.getElementById("surname").value;
-		testScore.physics = document.getElementById("age").value;
-		testScore.chemistry = document.getElementById("chemical").value;
-		testScore.avg = (parseFloat(testScore.math) + parseFloat(testScore.physics) + parseFloat(testScore.chemistry)) / 3;
+		tableData.name = document.getElementById("name").value;
+		tableData.surname = document.getElementById("surname").value;
+		tableData.age = document.getElementById("age").value;
+		tableData.email = document.getElementById("email").value;
+		
+		tableData.select = document.getElementById("select").value;
+	
 		document.getElementById("name").value = "";
 		document.getElementById("surname").value = "";
 		document.getElementById("age").value = "";
 		document.getElementById("email").value = "";
+
 		document.getElementById("select").value = "";
 	  
 		// Insert row
@@ -153,20 +158,19 @@ function addData(el) {
 		var row = table.insertRow(i);
 		var number = row.insertCell(0);
 		var name = row.insertCell(1);
-		var math = row.insertCell(2);
-		var physics = row.insertCell(3);
-		var chemistry = row.insertCell(4);
-		var avg = row.insertCell(5);
+		var surname = row.insertCell(2);
+		var age = row.insertCell(3);
+		var email = row.insertCell(4);
+
+		var select = row.insertCell(5);
 	  
 		number.innerHTML = i;
-		name.innerHTML = testScore.name;
-		math.innerHTML = testScore.math;
-		physics.innerHTML = testScore.physics;
-		chemistry.innerHTML = testScore.chemistry;
-		avg.innerHTML = testScore.avg;
+		name.innerHTML = tableData.name;
+		surname.innerHTML = tableData.surname;
+		age.innerHTML = tableData.age;
+		email.innerHTML = tableData.email;
+		
+		select.innerHTML = tableData.select;
 		i++;
-		/** I need help, How to calculate the average score and if the average 
-		score is >= 8 then hightlight every text in that row into red
-		 */
 	  }
 	
