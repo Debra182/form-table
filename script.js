@@ -184,6 +184,8 @@ const submit=()=>{
     }
     table.appendChild(tr);
 
+
+
   /*let newArray = [name,surname,email,age,color,chckbx];
   newArray.forEach((item)=>{
     let table = document.querySelector('#data');
@@ -212,6 +214,5 @@ table.appendChild(tr);
       "<th>" + (index + 1).toString()+ "</th>" + 
       "<td>" +newArray[index]+ "</td>";
   }*/
-
-
 }
+
