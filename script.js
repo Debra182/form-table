@@ -10,7 +10,7 @@ const firstCheckbox = checkboxLength > 0 ? checkBoxes[0] : null;
 
 const form = document.querySelector('#signup');
 
-const checkEmail = () => {
+/*const checkEmail = () => {
     let valid = false;
     const email = emailEl.value.trim();
     if (!isRequired(email)) {
@@ -42,23 +42,17 @@ return true;
 
 const checkboxValid = () => {
 
-    document.getElementById('submit').addEventListener('click', getData); //add a click event to the save button
-
-   //let error = true;
-
-    function getData() { // this function will get called when the save button is clicked
-        checkBoxes.forEach(item => { // loop all the checkbox item
-            if (item.checked) {  //if the check box is checked
-                showSuccess(checkBoxes);
-            }
-            else {
-                showError(checkBoxes, 'Minimum one color you have to pick..');
-                return false;
-            }
-        });
- 
+    var okay=false;
+    for(var i=0,l=checkboxLength;i<l;i++)
+    {
+        if(checkBoxes[i].checked)
+        {
+            okay=true;
+            break;
+        }
     }
-
+    if(okay)alert("Thank you for checking a checkbox");
+    else alert("Please check a checkbox");
    
     /*const cbox = document.forms["signup"]["check"];
     if (isRequired(
@@ -70,7 +64,7 @@ const checkboxValid = () => {
     } else {
         alert("Successfully Submited");
       valid = true;
-    }*/
+    }
 }
 
 const isRequired = value => value === '' ? false : true;
@@ -144,4 +138,80 @@ form.addEventListener('input', debounce(function (e) {
             break;
     }
 }));
+*/
 
+let table=document.getElementById('data');
+form.addEventListener("submit",(e)=>{
+  e.preventDefault();
+  submit();
+})
+
+
+const submit=()=>{
+
+    let name = document.querySelector('#name').value;
+    let surname = document.querySelector('#surname').value;
+    let email = document.querySelector('#email').value;
+    let age = document.querySelector('#age').value;
+    let chckbx = document.querySelector('input[type="checkbox"]').value;
+    let color = document.querySelector('#favcolor').value;
+
+    var table = document.getElementById('data');
+    var columnLength = table.getElementsByTagName('tr')[0].children.length;          
+    //var units = document.getElementsByClassName('unit-table');          
+    var tr = document.createElement('tr');
+    tr.className = 'unit-table';
+    for (var i = 0; i < columnLength; i++) {              
+        var td = document.createElement('td');
+        var text = document.createElement('input');
+        text.type = 'text';
+        text.id = 'text' + i;
+        if (i == 0) {
+            text.value = name;
+        } else if (i == 1) {
+            text.value = surname;
+        } else if (i == 2) {
+            text.value = email;
+        } else if (i == 3) {
+            text.value = age;
+        } else if (i == 4) {
+            text.value = chckbx;
+        } else if (i == 5) {
+            text.value = color;
+        }
+        td.appendChild(text);
+        tr.appendChild(td);
+    }
+    table.appendChild(tr);
+
+  /*let newArray = [name,surname,email,age,color,chckbx];
+  newArray.forEach((item)=>{
+    let table = document.querySelector('#data');
+    let tr = document.createElement('tr');
+    var text = document.createTextNode(item);
+    //table.appendChild(text);
+ 
+for (let i = 1; i <= 6; i++) {
+	tr.appendChild(text);
+}
+
+table.appendChild(tr);
+
+  })
+
+  form.reset();
+
+
+  var newArray = [name,surname,email,age,color,chckbx];
+
+  var tableRef = document.getElementById('data').getElementsByTagName('tbody')[0];
+
+  for (let index = 0; index < newArray.length; index++){
+      //insert Row
+      tableRef.insertRow().innerHTML = 
+      "<th>" + (index + 1).toString()+ "</th>" + 
+      "<td>" +newArray[index]+ "</td>";
+  }*/
+
+
+}
