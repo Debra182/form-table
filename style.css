@@ -11,6 +11,7 @@ body {
     padding: 0;
     height: 100%;
     font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 form {
@@ -146,18 +147,18 @@ label {
     margin-bottom: 20px;
 }
 
-.form .err-txt {
+.form .err-txt, small {
     display: none;
-    padding: 5px;
+    padding: 5px 0;
     margin-bottom: 15px;
     color: #f20;
 }
 
-.form .form-field.error {
+.form .form-field.error, small {
     border-color: #f20;
 }
 
-.form .form-field.error .err-txt {
+.form .form-field.error .err-txt, small {
     display: block;
 }
 

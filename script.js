@@ -28,15 +28,15 @@ const isEmailValid = (email) => {
 
 const checkboxValid = () => {
     let valid = false;
-    var cbox = document.forms["signup"]["check"];
-    if (
+    const cbox = document.forms["signup"]["check"];
+    if (isRequired(
       cbox[0].checked == false &&
       cbox[1].checked == false &&
-      cbox[2].checked == false
+      cbox[2].checked == false)
     ) {
-      alert("Please Select Gender");
+        alert("Please Select Gender");
     } else {
-      alert("Successfully Submited");
+        alert("Successfully Submited");
       valid = true;
     }
 }
