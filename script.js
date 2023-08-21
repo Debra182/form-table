@@ -52,7 +52,7 @@ const checkboxValid = () => {
         }
     }
     if(okay) okay=true;
-    else alert("Please select at least one");
+    else alert("Please select at least one option preference");
    
 }
 
