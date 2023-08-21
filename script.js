@@ -10,7 +10,7 @@ const firstCheckbox = checkboxLength > 0 ? checkBoxes[0] : null;
 
 const form = document.querySelector('#signup');
 
-/*const checkEmail = () => {
+const checkEmail = () => {
     let valid = false;
     const email = emailEl.value.trim();
     if (!isRequired(email)) {
@@ -51,7 +51,7 @@ const checkboxValid = () => {
             break;
         }
     }
-    if(okay)alert("Thank you for checking a checkbox");
+    if(okay) okay=true;//alert("Thank you for checking a checkbox");
     else alert("Please check a checkbox");
    
     /*const cbox = document.forms["signup"]["check"];
@@ -64,7 +64,7 @@ const checkboxValid = () => {
     } else {
         alert("Successfully Submited");
       valid = true;
-    }
+    }*/
 }
 
 const isRequired = value => value === '' ? false : true;
@@ -107,7 +107,7 @@ form.addEventListener('submit', function (e) {
     let isFormValid = isEmailValid && isAgeValid && isCheckboxValid;
 
     if (isFormValid) {
-
+        form.reset();
     }
 });
 
@@ -138,7 +138,7 @@ form.addEventListener('input', debounce(function (e) {
             break;
     }
 }));
-*/
+
 
 
 let table=document.getElementById('data');
@@ -251,6 +251,7 @@ table.appendChild(tr);
       "<th>" + (index + 1).toString()+ "</th>" + 
       "<td>" +newArray[index]+ "</td>";
   }*/
+  form.reset();
 }
 
 
