@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -50,8 +51,9 @@
                 <small></small>
             </div>
 
-            <div class="form-field checkboxGroup">
+            <div class="form-field">
                 <legend>Contact preference</legend>
+            <div class="checkboxGroup">
                 <div class="form-group">
                 <input type="checkbox" name="check" id="emailcontact" autocomplete="off" value="email">
                 <label for="emailcontact" class="contactlabel">Email</label>
@@ -64,6 +66,7 @@
                 <input type="checkbox" name="check" id="smscontact" autocomplete="off" value="SMS">
                 <label for="smscontact" class="contactlabel">SMS</label>
             </div>
+        </div>
             <small></small>
             </div>
 
@@ -90,7 +93,7 @@
             </tbody>
         </table>
         </div>
-        <button id="button">Export HTML Table to EXCEL</button>
+        <button id="button" onclick="Convert()">Export HTML Table to JSON</button>
     </div>
 
     <script src="script.js"></script>

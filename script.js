@@ -262,47 +262,24 @@ if (result) {
         return false;
     }
 }
+/*
+function Convert() {
+    var table = document.getElementById("data");
+    var header = [];
+    var rows = [];
 
+    for (var i = 0; i < table.rows[0].cells.length; i++) {
+        header.push(table.rows[0].cells[i].innerHTML);
+    }
 
-function toArrayOfObjects(table) {
-    const columns = Array.from(table.querySelectorAll('th')).map(
-      heading => heading.textContent,
-    );
-  
-    const rows = table.querySelectorAll('table > tr');
-  
-    return Array.from(rows).map(row => {
-      const dataCells = Array.from(row.querySelectorAll('td'));
-  
-      return columns.reduce((obj, column, index) => {
-        obj[column] = dataCells[index].textContent;
-        return obj;
-      }, {});
-    });
-  }
-  
-  
-  function downloadJSONTable(jsonStr, fileName) {
-    const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(
-      jsonStr,
-    )}`;
-  
-    const anchorElement = document.createElement('a');
-  
-    anchorElement.href = dataStr;
-    anchorElement.download = `${fileName}.json`;
-  
-    document.body.appendChild(anchorElement);
-    anchorElement.click();
-  
-    document.body.removeChild(anchorElement);
-  }
-  
-  const downloadButton = document.getElementById('button');
-  
-  downloadButton.addEventListener('click', () => {
-    const jsonStr = JSON.stringify(toArrayOfObjects(table));
-  
-    downloadJSONTable(jsonStr, 'myFile');
-  });
-  
+    for (var i = 1; i < table.rows.length; i++) {
+        var row = {};
+        for (var j = 0; j < table.rows[i].cells.length; j++) {
+            row[header[j]] = table.rows[i].cells[j].innerHTML;
+        }
+        rows.push(row);
+    }
+
+    alert(JSON.stringify(rows));
+}
+*/
