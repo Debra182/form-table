@@ -156,7 +156,7 @@ const submit=()=>{
     let age = document.querySelector('#age').value;
     let color = document.querySelector('#favcolor').value;
     let chckbx = document.querySelector('input[type="checkbox"]:checked').value;
-
+  
     let newArray = [name,surname,email,age,color,chckbx];
 
     var table = document.getElementById('data');
@@ -214,9 +214,9 @@ const submit=()=>{
         } else if (i == 4) {
             text.value = color;
         } else if (i == 5) {
-            
             text.value = chckbx;
         }
+
         td.appendChild(text);
         tr.appendChild(td);
     }
@@ -286,3 +286,4 @@ function Convert() {
     alert(JSON.stringify(rows));
 }
 */
+
