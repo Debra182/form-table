@@ -155,7 +155,7 @@ const submit=()=>{
     let email = document.querySelector('#email').value;
     let age = document.querySelector('#age').value;
     let color = document.querySelector('#favcolor').value;
-    let chckbx = document.querySelector('input[type="checkbox"]').value;
+    let chckbx = document.querySelector('input[type="checkbox"]:checked').value;
 
     let newArray = [name,surname,email,age,color,chckbx];
 
@@ -214,6 +214,7 @@ const submit=()=>{
         } else if (i == 4) {
             text.value = color;
         } else if (i == 5) {
+            
             text.value = chckbx;
         }
         td.appendChild(text);
@@ -256,10 +257,12 @@ table.appendChild(tr);
 let removeRow = (oButton) => {
     table.deleteRow(oButton.parentNode.parentNode.rowIndex); // buttton -> td -> tr
     var result = confirm("Are you sure you want to delete?");
-if (result) {
+if (result==true) {
     //Logic to delete the item
+    return true;
     } else {
-        return false;
+        event.preventDefault();
+        window.location='';
     }
 }
 /*
