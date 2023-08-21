@@ -15,7 +15,7 @@ body {
 }
 
 form {
-    max-width: 300px;
+    max-width: 400px;
     margin: 20px auto;
     padding: 10px 20px;
     background: #f4f7f8;
@@ -47,7 +47,6 @@ select {
     background-color: #e8eeef;
     color: #8a97a0;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-    margin-bottom: 10px;
     font-size: 15px;
 }
 
@@ -62,7 +61,7 @@ select {
 }
 
 input[type="submit"] {
-    padding: 19px 39px 18px 39px;
+    padding: 18px 36px;
     color: #FFF;
     background-color: #4bc970;
     font-size: 18px;
@@ -167,6 +166,7 @@ table {
     display: grid;
     justify-content: center;
     padding: 0;
+    margin: 0 40px 50px;
 }
 
 table th {
@@ -177,21 +177,92 @@ table th {
     line-height: 24px;
 }
 
-tbody tr:nth-child(odd) {
+table tr:nth-child(odd) {
     background-color: #fff;
 }
   
-tbody tr:nth-child(even) {
+table tr:nth-child(even) {
     background-color: #eee;
+}
+
+table thead tr {
+    display: flex;
+    align-items: center;
+    margin-left: 130px;
 }
 
 table tr {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+table td {
+    height: 100%;
 }
 
 table td input {
     text-align: center;
+    border-radius: 5px; 
+}
+
+table td input[type="button"] {
+    background-color:#C70000;
+    color: #fff;
+    border: none; 
+    border-radius: 5px; 
+    padding: 15px;
+    height: 100%; 
+    min-width: 120px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 910px) {
+    form {
+        padding: 30px 20px 20px;
+        margin-top: 0;
+    }
+
+    input[type="submit"] {
+        padding: 16px 20px;
+        font-size: 16px;
+        letter-spacing: 1.3px;
+        margin-top: 17px;
+    }
+
+    .wrapper {
+        display: inline-block;
+        min-width: 100%;
+        box-sizing: border-box;
+      }
+      
+      .wrapper > table {
+        width: inherit;
+        display: block;
+        margin: 0 20px 50px;
+      }
+
+      table thead {
+        display: block;
+        margin-left: 74px;
+      }
+
+      table thead tr {
+        margin-left: 40px;
+    }
+
+      table thead th {
+        display: block;
+        min-width: 180px;
+      }
+
+      table tr {
+        overflow: scroll;
+      }
+
+      table td input[type="button"] {
+        min-width: 110px;
+      }
 }
 
 @media screen and (min-width: 480px) {

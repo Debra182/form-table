@@ -140,6 +140,7 @@ form.addEventListener('input', debounce(function (e) {
 }));
 */
 
+
 let table=document.getElementById('data');
 form.addEventListener("submit",(e)=>{
   e.preventDefault();
@@ -153,13 +154,49 @@ const submit=()=>{
     let surname = document.querySelector('#surname').value;
     let email = document.querySelector('#email').value;
     let age = document.querySelector('#age').value;
-    let chckbx = document.querySelector('input[type="checkbox"]').value;
     let color = document.querySelector('#favcolor').value;
+    let chckbx = document.querySelector('input[type="checkbox"]').value;
+
+    let newArray = [name,surname,email,age,color,chckbx];
 
     var table = document.getElementById('data');
-    var columnLength = table.getElementsByTagName('tr')[0].children.length;          
-    //var units = document.getElementsByClassName('unit-table');          
-    var tr = document.createElement('tr');
+    var columnLength = table.getElementsByTagName('tr')[0].children.length;
+    
+
+    let rowCnt = table.rows.length;    // get the number of rows.
+    let tr = table.insertRow(rowCnt); // table row.
+    tr = table.insertRow(rowCnt);
+    
+    for (let c = 0; c < newArray.length; c++) {
+        let td = document.createElement('td');
+        td = tr.insertCell(c);
+        
+    if (c == 0) {   // if its the first column of the table.
+        // add a button control.
+        const button = document.createElement('input');
+
+        // set the attributes.
+        button.setAttribute('type', 'button');
+        button.setAttribute('value', 'Remove');
+
+        // add button's "onclick" event.
+        button.setAttribute('onclick', 'removeRow(this)');
+        
+
+        td.appendChild(button);
+
+    }
+    else {
+        // the 2nd, 3rd and 4th column, will have textbox.
+        //const ele = document.createElement('input');
+        //ele.setAttribute('type', 'text');
+        //ele.setAttribute('value', '');
+        //td.appendChild(ele);
+    }
+}
+
+    var units = document.getElementsByClassName('unit-table');          
+    //var tr = document.createElement('tr');
     tr.className = 'unit-table';
     for (var i = 0; i < columnLength; i++) {              
         var td = document.createElement('td');
@@ -175,15 +212,14 @@ const submit=()=>{
         } else if (i == 3) {
             text.value = age;
         } else if (i == 4) {
-            text.value = chckbx;
-        } else if (i == 5) {
             text.value = color;
+        } else if (i == 5) {
+            text.value = chckbx;
         }
         td.appendChild(text);
         tr.appendChild(td);
     }
     table.appendChild(tr);
-
 
 
   /*let newArray = [name,surname,email,age,color,chckbx];
@@ -216,3 +252,57 @@ table.appendChild(tr);
   }*/
 }
 
+
+let removeRow = (oButton) => {
+    table.deleteRow(oButton.parentNode.parentNode.rowIndex); // buttton -> td -> tr
+    var result = confirm("Are you sure you want to delete?");
+if (result) {
+    //Logic to delete the item
+    } else {
+        return false;
+    }
+}
+
+
+function toArrayOfObjects(table) {
+    const columns = Array.from(table.querySelectorAll('th')).map(
+      heading => heading.textContent,
+    );
+  
+    const rows = table.querySelectorAll('table > tr');
+  
+    return Array.from(rows).map(row => {
+      const dataCells = Array.from(row.querySelectorAll('td'));
+  
+      return columns.reduce((obj, column, index) => {
+        obj[column] = dataCells[index].textContent;
+        return obj;
+      }, {});
+    });
+  }
+  
+  
+  function downloadJSONTable(jsonStr, fileName) {
+    const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(
+      jsonStr,
+    )}`;
+  
+    const anchorElement = document.createElement('a');
+  
+    anchorElement.href = dataStr;
+    anchorElement.download = `${fileName}.json`;
+  
+    document.body.appendChild(anchorElement);
+    anchorElement.click();
+  
+    document.body.removeChild(anchorElement);
+  }
+  
+  const downloadButton = document.getElementById('button');
+  
+  downloadButton.addEventListener('click', () => {
+    const jsonStr = JSON.stringify(toArrayOfObjects(table));
+  
+    downloadJSONTable(jsonStr, 'myFile');
+  });
+  
