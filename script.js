@@ -51,20 +51,9 @@ const checkboxValid = () => {
             break;
         }
     }
-    if(okay) okay=true;//alert("Thank you for checking a checkbox");
-    else alert("Please check a checkbox");
+    if(okay) okay=true;
+    else alert("Please select at least one");
    
-    /*const cbox = document.forms["signup"]["check"];
-    if (isRequired(
-      cbox[0].checked == false &&
-      cbox[1].checked == false &&
-      cbox[2].checked == false)
-    ) {
-        alert("Please Select Gender");
-    } else {
-        alert("Successfully Submited");
-      valid = true;
-    }*/
 }
 
 const isRequired = value => value === '' ? false : true;
@@ -72,32 +61,26 @@ const isBetween = (length, min, max) => length < min || length > max ? false : t
 
 
 const showError = (input, message) => {
-    // get the form-field element
     const formField = input.parentElement;
-    // add the error class
     formField.classList.remove('success');
     formField.classList.add('error');
 
-    // show the error message
     const error = formField.querySelector('small');
     error.textContent = message;
 };
 
 const showSuccess = (input) => {
-    // get the form-field element
     const formField = input.parentElement;
 
-    // remove the error class
     formField.classList.remove('error');
     formField.classList.add('success');
 
-    // hide the error message
     const error = formField.querySelector('small');
     error.textContent = '';
 }
 
 form.addEventListener('submit', function (e) {
-    // prevent the form from submitting
+   
     e.preventDefault();
 
     let isEmailValid = checkEmail(),
@@ -114,11 +97,11 @@ form.addEventListener('submit', function (e) {
 const debounce = (fn, delay = 500) => {
     let timeoutId;
     return (...args) => {
-        // cancel the previous timer
+       
         if (timeoutId) {
             clearTimeout(timeoutId);
         }
-        // setup a new timer
+        
         timeoutId = setTimeout(() => {
             fn.apply(null, args)
         }, delay);
@@ -163,31 +146,27 @@ const submit=()=>{
     var columnLength = table.getElementsByTagName('tr')[0].children.length;
     
 
-    let rowCnt = table.rows.length;    // get the number of rows.
-    let tr = table.insertRow(rowCnt); // table row.
+    let rowCnt = table.rows.length; 
+    let tr = table.insertRow(rowCnt);
     tr = table.insertRow(rowCnt);
     
     for (let c = 0; c < newArray.length; c++) {
         let td = document.createElement('td');
         td = tr.insertCell(c);
         
-    if (c == 0) {   // if its the first column of the table.
-        // add a button control.
+    if (c == 0) {  
         const button = document.createElement('input');
 
-        // set the attributes.
         button.setAttribute('type', 'button');
         button.setAttribute('value', 'Remove');
 
-        // add button's "onclick" event.
         button.setAttribute('onclick', 'removeRow(this)');
         
-
         td.appendChild(button);
 
     }
     else {
-        // the 2nd, 3rd and 4th column, will have textbox.
+        
         //const ele = document.createElement('input');
         //ele.setAttribute('type', 'text');
         //ele.setAttribute('value', '');
@@ -223,34 +202,6 @@ const submit=()=>{
     table.appendChild(tr);
 
 
-  /*let newArray = [name,surname,email,age,color,chckbx];
-  newArray.forEach((item)=>{
-    let table = document.querySelector('#data');
-    let tr = document.createElement('tr');
-    var text = document.createTextNode(item);
-    //table.appendChild(text);
- 
-for (let i = 1; i <= 6; i++) {
-	tr.appendChild(text);
-}
-
-table.appendChild(tr);
-
-  })
-
-  form.reset();
-
-
-  var newArray = [name,surname,email,age,color,chckbx];
-
-  var tableRef = document.getElementById('data').getElementsByTagName('tbody')[0];
-
-  for (let index = 0; index < newArray.length; index++){
-      //insert Row
-      tableRef.insertRow().innerHTML = 
-      "<th>" + (index + 1).toString()+ "</th>" + 
-      "<td>" +newArray[index]+ "</td>";
-  }*/
   form.reset();
 }
 
@@ -266,25 +217,5 @@ if (result==true) {
         window.location='';
     }
 }
-/*
-function Convert() {
-    var table = document.getElementById("data");
-    var header = [];
-    var rows = [];
 
-    for (var i = 0; i < table.rows[0].cells.length; i++) {
-        header.push(table.rows[0].cells[i].innerHTML);
-    }
-
-    for (var i = 1; i < table.rows.length; i++) {
-        var row = {};
-        for (var j = 0; j < table.rows[i].cells.length; j++) {
-            row[header[j]] = table.rows[i].cells[j].innerHTML;
-        }
-        rows.push(row);
-    }
-
-    alert(JSON.stringify(rows));
-}
-*/
 
